@@ -20,12 +20,12 @@ const Container = styled.div`
 
 const ItemName = styled.h3`
   margin: 0;
-  color: rebeccapurple;
+  color: ${props => props.theme.main};
   font-size: 20px;
 `;
 
 const Icon = styled(FontAwesomeIcon)`
-  color: rebeccapurple;
+  color: ${props => props.theme.main};
   font-size: 48px;
   margin-bottom: 7px;
 `;
