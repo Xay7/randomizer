@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 130px;
@@ -16,6 +17,9 @@ const Container = styled.div`
   justify-content: center;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
     0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ItemName = styled.h3`
@@ -37,10 +41,12 @@ interface Props {
 
 const Element: React.FC<Props> = props => {
   return (
-    <Container>
-      <Icon icon={props.icon as IconName} />
-      <ItemName>{props.name}</ItemName>
-    </Container>
+    <Link to={props.name.toLocaleLowerCase()} style={{ textDecoration: "none" }}>
+      <Container>
+        <Icon icon={props.icon as IconName} />
+        <ItemName>{props.name}</ItemName>
+      </Container>
+    </Link>
   );
 };
 

@@ -2,15 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import SearchBar from "components/UI/Search/SearchBar";
 import { data } from "utils/itemsList";
-import Item from "components/Item/Item";
-
-const Container = styled.main`
-  margin: 0 auto;
-  margin-top: 48px;
-  height: 300px;
-  width: 960px;
-  background-color: white;
-`;
+import Item from "components/ItemsList/Item/Item";
 
 const ItemsContainer = styled.section`
   width: 100%;
@@ -26,6 +18,7 @@ const Main: React.FC = () => {
   let itemsList: Array<any> = [];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(process.env.REACT_APP_API_KEY);
     let updatedItems: Array<any> = [];
     for (const el in data) {
       updatedItems = [
@@ -48,10 +41,10 @@ const Main: React.FC = () => {
   }
 
   return (
-    <Container>
+    <React.Fragment>
       <SearchBar onChange={handleChange} />
       <ItemsContainer>{itemsList}</ItemsContainer>
-    </Container>
+    </React.Fragment>
   );
 };
 
